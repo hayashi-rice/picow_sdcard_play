@@ -1,0 +1,46 @@
+{
+
+  // These settings tweaks to the cmake plugin will ensure
+  // that you debug using cortex-debug instead of trying to launch
+  // a Pico binary on the host
+  
+  "cmake.environment": {
+      "PICO_SDK_PATH":"/Users/reiya/pico/pico-sdk/",
+  },
+  "cmake.buildBeforeRun": true,
+    "cmake.configureOnOpen": true,
+    "cmake.configureSettings": {
+      "CMAKE_MODULE_PATH": "${env:PICO_INSTALL_PATH}/pico-sdk-tools",
+      "PICO_BOARD": "pico_w",
+      "WIFI_SSID": "acoust_2g",
+      "PASSWORD": "acoust_oikawa"
+    },
+    //"cmake.sourceDirectory": "/Users/reiya/pico/no-OS-FatFS-SD-SDIO-SPI-RPi-Pico/examples/simple",
+    //"cmake.sourceDirectory": "/Users/reiya/pico/picow_sdcard_play",
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.configureArgs": [
+        //"-DPICO_SDK_PATH=Users/reiya/pico/pico-sdk",
+        "-DPICO_BOARD=pico_w"
+    ],
+
+    "cmake.statusbar.advanced": {
+    "debug" : {
+      "visibility": "hidden"
+              },
+    "launch" : {
+      "visibility": "hidden"
+               },
+    "build" : {
+      "visibility": "hidden"
+               },
+    "buildTarget" : {
+      "visibility": "hidden"
+               },
+     },
+
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "files.associations": {
+      "stdlib.h": "c",
+      "gpio.h": "c"
+    },
+}

@@ -1,0 +1,1 @@
+cmd='/usr/local/Cellar/cmake/3.30.3/bin/cmake;--no-warn-unused-cli;-DCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/make;-DPIOASM_FLAT_INSTALL=1;-DCMAKE_INSTALL_PREFIX=/Users/reiya/pico/picow_sdcard_play/build/pioasm-install;-DCMAKE_RULE_MESSAGES=OFF;-DCMAKE_INSTALL_MESSAGE=NEVER;-GUnix Makefiles;-C<TMP_DIR>/pioasmBuild-cache-$<CONFIG>.cmake;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'
