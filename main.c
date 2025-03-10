@@ -63,7 +63,7 @@ int main(void) {
     // サンプルレートについて
     // 本プログラムは、1ビット出力ループが「out + jmp」の2命令で構成
     // 1ビットの出力周期 = 2 × (1 / SM実行周波数)
-    // したがって、2.8MHzのオーディオ出力を得るためには、SM実行周波数を5.6MHzに設定します。
+    // 2.8MHzのオーディオ出力を得るためには、SM実行周波数を5.6MHzに設定
     float sm_clk_div = (float)125e6 / 5.6e6;  // 約22.32
     sm_set_clkdiv(pio, sm, sm_clk_div);
 
@@ -72,7 +72,7 @@ int main(void) {
     // ------------------------------
     int dma_chan = dma_claim_unused_channel(true);
     dma_channel_config c = dma_channel_get_default_config(dma_chan);
-    // 32bit単位の転送（※ FatFsから読み出すデータは1バイト単位ですが、
+    // 32bit単位の転送（※ FatFsから読み出すデータは1バイト単位だが、
     //     DMA転送では4バイトずつ送るので、ファイルサイズが4の倍数であることを想定）
     channel_config_set_transfer_data_size(&c, DMA_SIZE_32);
     // PIO TX FIFOのDREQを使用（TX FIFOが空になるとDMAが進行）
@@ -90,7 +90,7 @@ int main(void) {
         printf("Failed to read file or empty file.\n");
         while(1) sleep_ms(1000);
     }
-    // DMA転送数は32bit単位なので、bytes_readは4で割れる前提です。
+    // DMA転送数は32bit単位なので、bytes_readは4で割れる前提
     uint transfers = bytes_read / 4;
 
     // DMA転送開始（buffer0からPIO TX FIFOへ）
