@@ -1,20 +1,24 @@
 
 
-# Simple Example for an SPI-attached SD card
+# picow_sdcard_play
 
 ### Overview
 
-This program is a simple demonstration of writing to an SD card using the [FatFs API](http://elm-chan.org/fsw/ff/00index_e.html).
-It initializes the standard input/output, mounts an SD card, writes to a file, and then unmounts the SD card.
+本プロジェクトは、Raspberry Pi Pico を用いて SDカードから1bitオーディオファイルを読み込み、PIO と DMA を組み合わせてオーディオ再生を行うデモプログラムです。FatFsライブラリを利用したファイル操作や、PIOを用いたハードウェア制御の実装例です。
 
-### Features
+### File structure
 
-* Mounts an SD card
-* Opens a file in append mode and writes a message
-* Closes the file and unmounts the SD card
-* Prints success and failure messages to the STDIO console
+* ds_out.pio.h
+PIOアセンブラ（pioasm）によって自動生成されたヘッダファイル。オーディオ出力用の PIO プログラムが含まれています.
 
-### Requirements
-* You will need to
-[customize](https://github.com/carlk3/no-OS-FatFS-SD-SDIO-SPI-RPi-Pico#customizing-for-the-hardware-configuration)
-the `hw_config.c` file to match your hardware.
+* write_data.c
+SDカード上のファイルを読み込み、別ファイルへ書き出すサンプルコードです。FatFs を利用したファイル操作の実例が示されています。
+
+* CMakeLists.txt
+CMake を利用してプロジェクトをビルドするための設定ファイルです。Raspberry Pi Pico SDK のインポートや、使用するライブラリ、コンパイルオプションの設定が含まれています。
+
+* hw_config.c
+ハードウェア設定ファイルです。SPI インタフェースや SDカード接続に関する GPIO 番号、SPI の設定（ボーレートなど）が記述されています。
+
+* main.c
+メインアプリケーションコードです。SDカードからオーディオファイル（"audio.wsd"）を読み込み、PIO と DMA を用いてオーディオ出力を実現します。ダブルバッファ方式により連続再生を行っています。
