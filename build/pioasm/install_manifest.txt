@@ -1,5 +1,0 @@
-/Users/reiya/pico/picow_sdcard_play/build/pioasm-install/pioasm/pioasm
-/Users/reiya/pico/picow_sdcard_play/build/pioasm-install/pioasm/pioasmTargets.cmake
-/Users/reiya/pico/picow_sdcard_play/build/pioasm-install/pioasm/pioasmTargets-release.cmake
-/Users/reiya/pico/picow_sdcard_play/build/pioasm-install/pioasm/pioasmConfig.cmake
-/Users/reiya/pico/picow_sdcard_play/build/pioasm-install/pioasm/pioasmConfigVersion.cmake
